@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import FogLayer from "@/components/FogLayer";
 
 export default function ScrollVideoHero({ children, revealContent }) {
   const containerRef = useRef(null);
@@ -121,6 +122,10 @@ export default function ScrollVideoHero({ children, revealContent }) {
   return (
     <div ref={containerRef} className="relative isolate h-[190vh]">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-zinc-950">
+        {/* Sits below the (opaque, while playing) video - only becomes
+            visible once the video fades out, right alongside revealContent. */}
+        <FogLayer className="absolute inset-0" />
+
         <video
           ref={videoRef}
           src="/hero.mp4"
@@ -131,6 +136,7 @@ export default function ScrollVideoHero({ children, revealContent }) {
         >
           Tarayıcınız video etiketini desteklemiyor.
         </video>
+
         {children}
 
         {/* Fades in on top of the video as it darkens (driven by --reveal,

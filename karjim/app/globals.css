@@ -29,3 +29,23 @@ body {
 .text-shadow-neon-orange {
   text-shadow: 0 0 8px rgba(255, 107, 0, 0.8), 0 0 16px rgba(255, 107, 0, 0.4);
 }
+
+/* Yavaşça süzülen, çok hafif gri sis lekeleri - sayfanın genelinde arka
+   planda dekoratif bir derinlik hissi verir. */
+@keyframes fog-drift-a {
+  0%, 100% { transform: translate(-5%, -5%) scale(1); }
+  50% { transform: translate(5%, 8%) scale(1.15); }
+}
+
+@keyframes fog-drift-b {
+  0%, 100% { transform: translate(6%, 4%) scale(1.1); }
+  50% { transform: translate(-6%, -6%) scale(1); }
+}
+
+.fog-blob-a {
+  animation: fog-drift-a 40s ease-in-out infinite;
+}
+
+.fog-blob-b {
+  animation: fog-drift-b 34s ease-in-out infinite;
+}

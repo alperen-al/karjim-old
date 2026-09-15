@@ -4,11 +4,14 @@ import QuickAccessBar from "@/components/QuickAccessBar";
 import CampaignsSection from "@/components/CampaignsSection";
 import HoursSection from "@/components/HoursSection";
 import ContactSection from "@/components/ContactSection";
+import FogLayer from "@/components/FogLayer";
 import { siteConfig } from "@/data/siteConfig";
 
 export default function Home() {
   return (
     <div className="relative flex-1 bg-zinc-950 text-zinc-100">
+      <FogLayer className="fixed inset-0" />
+
       <QuickAccessBar />
 
       <ScrollVideoHero
